@@ -4,7 +4,7 @@ import { fetchQuizQuestions } from './API';
 //Types
 import { Difficulty, QuestionState } from './API';
 
-type AnswerObject = {
+export type AnswerObject = {
 	question: string;
 	answer: string;
 	correct: boolean;
@@ -54,10 +54,18 @@ const App = () => {
 		}
 	};
 
-	const nextQuestion = () => {};
+	const nextQuestion = () => {
+		const nextQuestion = number + 1;
+		if (nextQuestion === TOTAL_QUESTIONS) {
+			setGameOver(true);
+		} else {
+			setNumber(nextQuestion);
+		}
+	};
 	return (
 		<div className='App'>
 			<h1>Quizzer</h1>
+			<h2>Score: {score}</h2>
 			{gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
 				<button className='start' onClick={startTrivia}>
 					Start
