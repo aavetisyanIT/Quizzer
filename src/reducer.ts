@@ -1,8 +1,8 @@
+import { Action } from './actions';
+
 export interface NotesStateInterface {
 	notes: string[];
 }
-
-type Action = { type: 'ADD_NOTE'; payload: string };
 
 const initialState = {
 	notes: [],
